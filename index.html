@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planetas Terrestres — Sistema Solar</title>
+  <meta name="description" content="Explore os planetas rochosos do Sistema Solar: Mercúrio, Vênus, Terra e Marte em detalhes completos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-dot"></span>
+        <span>PLANETAS TERRESTRES</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre" class="nav-link">O Que São</a></li>
+        <li><a href="#planetas" class="nav-link">Planetas</a></li>
+        <li><a href="#comparativo" class="nav-link">Comparativo</a></li>
+        <li><a href="#curiosidades" class="nav-link">Curiosidades</a></li>
+        <li><a href="#planetas" class="nav-cta">Explorar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas id="starCanvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Sistema Solar · Zona Interna</p>
+      <h1 class="hero-title">
+        <span class="title-line">Planetas</span>
+        <span class="title-line italic">Terrestres</span>
+      </h1>
+      <p class="hero-sub">Quatro mundos rochosos moldados por bilhões de anos de história cósmica — vulcões, crateras, atmosferas e oceanos.</p>
+      <div class="hero-btns">
+        <a href="#planetas" class="btn-primary">Explorar Planetas</a>
+        <a href="#sobre" class="btn-ghost">Saiba Mais</a>
+      </div>
+    </div>
+    <div class="hero-orbits" aria-hidden="true">
+      <div class="orbit orbit-1">
+        <div class="planet-orb mercury" data-name="Mercúrio"></div>
+      </div>
+      <div class="orbit orbit-2">
+        <div class="planet-orb venus" data-name="Vênus"></div>
+      </div>
+      <div class="orbit orbit-3">
+        <div class="planet-orb earth" data-name="Terra"></div>
+      </div>
+      <div class="orbit orbit-4">
+        <div class="planet-orb mars" data-name="Marte"></div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Role para explorar</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">DEFINIÇÃO</span>
+        <h2 class="section-title">O Que São Planetas Terrestres?</h2>
+      </div>
+      <div class="sobre-grid">
+        <div class="sobre-text">
+          <p class="lead">Planetas terrestres — ou rochosos — são corpos celestes sólidos compostos principalmente de silicatos, metais e rochas. Eles formam o grupo mais interno do Sistema Solar.</p>
+          <p>Ao contrário dos gigantes gasosos como Júpiter e Saturno, os planetas terrestres possuem superfícies sólidas bem definidas, densidades elevadas e núcleos metálicos. A denominação "terrestre" vem do latim <em>terra</em> (terra, solo), referindo-se à semelhança estrutural com nosso planeta.</p>
+          <p>São quatro os planetas terrestres do Sistema Solar: <strong>Mercúrio, Vênus, Terra e Marte</strong>, todos localizados na região interna, a menos de 1,5 UA (Unidade Astronômica) do Sol.</p>
+        </div>
+        <div class="sobre-cards">
+          <div class="feature-card">
+            <div class="feat-icon">⚙️</div>
+            <h3>Estrutura Interna</h3>
+            <p>Núcleo metálico (ferro/níquel), manto silicático e crosta rochosa definem todos os planetas terrestres.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feat-icon">🌋</div>
+            <h3>Atividade Geológica</h3>
+            <p>Vulcanismo, tectônica de placas e erosão moldam suas superfícies ao longo de bilhões de anos.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feat-icon">💨</div>
+            <h3>Atmosferas Variadas</h3>
+            <p>De quase zero (Mercúrio) a densa e tóxica (Vênus), cada planeta possui uma atmosfera única.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feat-icon">🌑</div>
+            <h3>Pequenos Satélites</h3>
+            <p>Poucos ou nenhum satélite natural — ao contrário dos gigantes gasosos com dezenas de luas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANETAS -->
+  <section class="planetas" id="planetas">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">EXPLORAÇÃO</span>
+        <h2 class="section-title">Os Quatro Planetas Rochosos</h2>
+        <p class="section-desc">Clique em cada planeta para revelar dados completos, curiosidades e características únicas.</p>
+      </div>
+
+      <!-- MERCÚRIO -->
+      <article class="planet-card" id="mercurio" data-planet="mercury">
+        <div class="planet-visual">
+          <div class="planet-3d mercury-3d">
+            <div class="planet-sphere mercury-sphere">
+              <div class="planet-surface"></div>
+              <div class="planet-glow"></div>
+            </div>
+            <div class="planet-shadow"></div>
+          </div>
+          <div class="planet-ring-label">
+            <span class="ring-num">01</span>
+            <span class="ring-name">Mercúrio</span>
+          </div>
+        </div>
+        <div class="planet-info">
+          <div class="planet-header">
+            <span class="planet-order">Primeiro Planeta</span>
+            <h2 class="planet-name">Mercúrio</h2>
+            <p class="planet-subtitle">O Mundo das Extremidades</p>
+          </div>
+          <p class="planet-desc">O menor e mais próximo planeta do Sol, Mercúrio é um mundo de extremos dantescos: sem atmosfera protetora, suas temperaturas variam de -180°C nas sombras a +430°C na face iluminada. Sua superfície é coberta por crateras de impacto, resultado de bilhões de anos sem atividade geológica renovadora.</p>
+          <div class="planet-stats">
+            <div class="stat">
+              <span class="stat-val">4.880 km</span>
+              <span class="stat-key">Diâmetro</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">0,387 UA</span>
+              <span class="stat-key">Dist. do Sol</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">88 dias</span>
+              <span class="stat-key">Ano Mercuriano</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">5,43 g/cm³</span>
+              <span class="stat-key">Densidade</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">0 luas</span>
+              <span class="stat-key">Satélites</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">3,7 m/s²</span>
+              <span class="stat-key">Gravidade</span>
+            </div>
+          </div>
+          <div class="planet-tags">
+            <span class="tag">Sem Atmosfera</span>
+            <span class="tag">Repleto de Crateras</span>
+            <span class="tag">Núcleo Gigante</span>
+            <span class="tag">Rotação Lenta</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- VÊNUS -->
+      <article class="planet-card reverse" id="venus" data-planet="venus">
+        <div class="planet-visual">
+          <div class="planet-3d venus-3d">
+            <div class="planet-sphere venus-sphere">
+              <div class="planet-surface"></div>
+              <div class="planet-atmosphere"></div>
+              <div class="planet-glow"></div>
+            </div>
+            <div class="planet-shadow"></div>
+          </div>
+          <div class="planet-ring-label">
+            <span class="ring-num">02</span>
+            <span class="ring-name">Vênus</span>
+          </div>
+        </div>
+        <div class="planet-info">
+          <div class="planet-header">
+            <span class="planet-order">Segundo Planeta</span>
+            <h2 class="planet-name">Vênus</h2>
+            <p class="planet-subtitle">O Inferno Dourado</p>
+          </div>
+          <p class="planet-desc">Conhecido como "planeta irmão" da Terra por seu tamanho similar, Vênus é na verdade um inferno de 462°C — mais quente que Mercúrio, apesar de ser mais distante do Sol. Sua atmosfera densa de CO₂ com nuvens de ácido sulfúrico cria um efeito estufa catastrófico. Gira de trás para frente e mais lento que sua própria órbita.</p>
+          <div class="planet-stats">
+            <div class="stat">
+              <span class="stat-val">12.104 km</span>
+              <span class="stat-key">Diâmetro</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">0,723 UA</span>
+              <span class="stat-key">Dist. do Sol</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">225 dias</span>
+              <span class="stat-key">Ano Venusiano</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">5,24 g/cm³</span>
+              <span class="stat-key">Densidade</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">0 luas</span>
+              <span class="stat-key">Satélites</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">8,87 m/s²</span>
+              <span class="stat-key">Gravidade</span>
+            </div>
+          </div>
+          <div class="planet-tags">
+            <span class="tag">462°C na Superfície</span>
+            <span class="tag">Rotação Retrógrada</span>
+            <span class="tag">Nuvens de Ácido</span>
+            <span class="tag">Efeito Estufa</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- TERRA -->
+      <article class="planet-card" id="terra" data-planet="earth">
+        <div class="planet-visual">
+          <div class="planet-3d earth-3d">
+            <div class="planet-sphere earth-sphere">
+              <div class="planet-surface"></div>
+              <div class="planet-clouds"></div>
+              <div class="planet-glow"></div>
+            </div>
+            <div class="planet-shadow"></div>
+          </div>
+          <div class="planet-ring-label">
+            <span class="ring-num">03</span>
+            <span class="ring-name">Terra</span>
+          </div>
+        </div>
+        <div class="planet-info">
+          <div class="planet-header">
+            <span class="planet-order">Terceiro Planeta · Nosso Lar</span>
+            <h2 class="planet-name">Terra</h2>
+            <p class="planet-subtitle">O Pálido Ponto Azul</p>
+          </div>
+          <p class="planet-desc">Único planeta conhecido a abrigar vida, a Terra é uma raridade cósmica. Com oceanos líquidos cobrindo 71% da superfície, uma atmosfera rica em nitrogênio e oxigênio, campo magnético protetor e uma lua estabilizadora, nosso planeta reúne um conjunto singular de condições que tornaram a vida não apenas possível, mas exuberante.</p>
+          <div class="planet-stats">
+            <div class="stat">
+              <span class="stat-val">12.742 km</span>
+              <span class="stat-key">Diâmetro</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">1,000 UA</span>
+              <span class="stat-key">Dist. do Sol</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">365,25 dias</span>
+              <span class="stat-key">Ano Terrestre</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">5,52 g/cm³</span>
+              <span class="stat-key">Densidade</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">1 lua</span>
+              <span class="stat-key">Satélites</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">9,81 m/s²</span>
+              <span class="stat-key">Gravidade</span>
+            </div>
+          </div>
+          <div class="planet-tags">
+            <span class="tag">Água Líquida</span>
+            <span class="tag">Vida Conhecida</span>
+            <span class="tag">Tectônica Ativa</span>
+            <span class="tag">Campo Magnético</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- MARTE -->
+      <article class="planet-card reverse" id="marte" data-planet="mars">
+        <div class="planet-visual">
+          <div class="planet-3d mars-3d">
+            <div class="planet-sphere mars-sphere">
+              <div class="planet-surface"></div>
+              <div class="planet-glow"></div>
+            </div>
+            <div class="planet-shadow"></div>
+          </div>
+          <div class="planet-ring-label">
+            <span class="ring-num">04</span>
+            <span class="ring-name">Marte</span>
+          </div>
+        </div>
+        <div class="planet-info">
+          <div class="planet-header">
+            <span class="planet-order">Quarto Planeta</span>
+            <h2 class="planet-name">Marte</h2>
+            <p class="planet-subtitle">O Planeta Vermelho</p>
+          </div>
+          <p class="planet-desc">O destino humano mais próximo, Marte guarda segredos fascinantes sob sua superfície cor de ferrugem. Abriga o maior vulcão e o maior cânion do Sistema Solar. Evidências crescentes sugerem que o planeta foi aquático no passado. Com um dia quase idêntico ao terrestre e calotas polares de gelo, Marte é o candidato mais promissor para futura colonização humana.</p>
+          <div class="planet-stats">
+            <div class="stat">
+              <span class="stat-val">6.779 km</span>
+              <span class="stat-key">Diâmetro</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">1,524 UA</span>
+              <span class="stat-key">Dist. do Sol</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">687 dias</span>
+              <span class="stat-key">Ano Marciano</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">3,93 g/cm³</span>
+              <span class="stat-key">Densidade</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">2 luas</span>
+              <span class="stat-key">Satélites</span>
+            </div>
+            <div class="stat">
+              <span class="stat-val">3,72 m/s²</span>
+              <span class="stat-key">Gravidade</span>
+            </div>
+          </div>
+          <div class="planet-tags">
+            <span class="tag">Olympus Mons</span>
+            <span class="tag">Valles Marineris</span>
+            <span class="tag">Água no Passado</span>
+            <span class="tag">Futuro Humano</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- COMPARATIVO -->
+  <section class="comparativo" id="comparativo">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">ANÁLISE</span>
+        <h2 class="section-title">Comparativo Detalhado</h2>
+        <p class="section-desc">Visualize as diferenças entre os quatro planetas rochosos do Sistema Solar.</p>
+      </div>
+      <div class="comp-tabs">
+        <button class="comp-tab active" data-tab="tamanho">Tamanho</button>
+        <button class="comp-tab" data-tab="temperatura">Temperatura</button>
+        <button class="comp-tab" data-tab="gravidade">Gravidade</button>
+        <button class="comp-tab" data-tab="distancia">Distância</button>
+      </div>
+      <div class="comp-chart" id="compChart">
+        <!-- Gerado por JS -->
+      </div>
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Característica</th>
+              <th class="mercury-col">☿ Mercúrio</th>
+              <th class="venus-col">♀ Vênus</th>
+              <th class="earth-col highlight-col">⊕ Terra</th>
+              <th class="mars-col">♂ Marte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Diâmetro (km)</td><td>4.880</td><td>12.104</td><td class="highlight-col">12.742</td><td>6.779</td></tr>
+            <tr><td>Massa (Terra = 1)</td><td>0,055</td><td>0,815</td><td class="highlight-col">1,000</td><td>0,107</td></tr>
+            <tr><td>Distância do Sol (UA)</td><td>0,387</td><td>0,723</td><td class="highlight-col">1,000</td><td>1,524</td></tr>
+            <tr><td>Período orbital (dias)</td><td>87,97</td><td>224,7</td><td class="highlight-col">365,25</td><td>687,0</td></tr>
+            <tr><td>Período de rotação</td><td>58,65 d</td><td>243,02 d</td><td class="highlight-col">23 h 56 min</td><td>24 h 37 min</td></tr>
+            <tr><td>Temp. média (°C)</td><td>+167</td><td>+462</td><td class="highlight-col">+15</td><td>−65</td></tr>
+            <tr><td>Gravidade (m/s²)</td><td>3,7</td><td>8,87</td><td class="highlight-col">9,81</td><td>3,72</td></tr>
+            <tr><td>Luas naturais</td><td>0</td><td>0</td><td class="highlight-col">1</td><td>2</td></tr>
+            <tr><td>Atmosfera</td><td>Vestigial</td><td>Densa CO₂</td><td class="highlight-col">N₂ + O₂</td><td>Tênue CO₂</td></tr>
+            <tr><td>Água líquida</td><td>Não</td><td>Não</td><td class="highlight-col">Sim</td><td>Rastros</td></tr>
+            <tr><td>Vida conhecida</td><td>Não</td><td>Não</td><td class="highlight-col">Sim</td><td>Não</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURIOSIDADES -->
+  <section class="curiosidades" id="curiosidades">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">FATOS</span>
+        <h2 class="section-title">Curiosidades Incríveis</h2>
+      </div>
+      <div class="curio-grid">
+        <div class="curio-card large">
+          <span class="curio-num">01</span>
+          <h3>Um dia em Vênus é mais longo que um ano em Vênus</h3>
+          <p>Vênus leva 243 dias terrestres para completar uma rotação, mas apenas 225 dias para orbitar o Sol. Isso significa que um dia venusiano é mais longo que o seu próprio ano — e ele gira no sentido oposto ao da Terra.</p>
+        </div>
+        <div class="curio-card">
+          <span class="curio-num">02</span>
+          <h3>Mercúrio tem um núcleo gigantesco</h3>
+          <p>O núcleo de Mercúrio ocupa cerca de 85% do raio do planeta — o maior proporcionalmente do Sistema Solar. Isso deve-se a colisões que vaporizaram grande parte da crosta.</p>
+        </div>
+        <div class="curio-card">
+          <span class="curio-num">03</span>
+          <h3>Marte tem a maior montanha do Sistema Solar</h3>
+          <p>Olympus Mons tem 21 km de altitude e 600 km de diâmetro — três vezes mais alto que o Everest e tão largo que seus pés seriam invisíveis do topo devido à curvatura de Marte.</p>
+        </div>
+        <div class="curio-card">
+          <span class="curio-num">04</span>
+          <h3>A Terra não é uma esfera perfeita</h3>
+          <p>Devido à rotação, a Terra é achatada nos polos e protuberante no equador. A diferença entre o raio polar e equatorial é de ~21 km, tornando-a um "esferóide oblato".</p>
+        </div>
+        <div class="curio-card">
+          <span class="curio-num">05</span>
+          <h3>Mercúrio encolheu ao longo do tempo</h3>
+          <p>À medida que o núcleo de Mercúrio esfriou e contraiu, a superfície formou imensos penhascos chamados rupes, indicando que o planeta encolheu até 7 km em raio desde sua formação.</p>
+        </div>
+        <div class="curio-card large">
+          <span class="curio-num">06</span>
+          <h3>Vênus gira de cabeça para baixo</h3>
+          <p>Se você pudesse olhar para Vênus do polo norte do Sistema Solar, o planeta giraria no sentido horário — o oposto de quase todos os outros planetas. Uma teoria sugere que um impacto colossal virou Vênus de cabeça para baixo há bilhões de anos. O resultado: o Sol nasce no oeste e se põe no leste em Vênus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-dot"></span>
+          <span>PLANETAS TERRESTRES</span>
+        </div>
+        <p class="footer-copy">Conteúdo educacional sobre o Sistema Solar · Dados baseados em pesquisas da NASA e ESA</p>
+        <div class="footer-links">
+          <a href="https://www.nasa.gov/solar-system/" target="_blank" rel="noopener">NASA</a>
+          <a href="https://www.esa.int/" target="_blank" rel="noopener">ESA</a>
+          <a href="#hero">Voltar ao Topo ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
